@@ -24,8 +24,7 @@
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
           <li><a href="index.html">Home</a></li>
           <li><a href="examples.html">Examples</a></li>
-          <li><a href="install.html">Install</a></li>
-          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="docs.html">Docs</a></li>
           <li class="selected"><a href="api.html">API</a></li>
           <li><a href="faq.html">FAQ</a></li>
         </ul>
@@ -64,7 +63,33 @@
       <!-- MAIN CONTENT STARTS --->
       
       <div id="content">
+        <p class="alert">WORK IN PROGRESS!</p>
+        <h1>Introduction</h1>
+        <p>
+        GLAMpipe has powerful API. Actually, GLAMpipe *is* API. This means that GLAMpipe can be used as a backend for data manipulation. 
+        <ul>
+        <li>Create projects</li>
+        <li>Add collections</li>
+        <li>Add nodes</li>
+        <li>Run nodes</li>
+        <li>Run projects</li>
+        <li>Get data from collections</li>
+        </ul>
+        </p>
+        
+        <h2>Project pipes</h2>
+        <p>
+        Project pipes makes it possible to define project and then run it with one command. For example, you need to fetch CSV from online, then split authors to individual fields, then group by authors and finally export only authors in CSV format. 
+        </p>
+        <h3>CASE: Plone form</h3>
+        <p>
+        Lets assume that there is a web form where researcher can ask certain services from university. Form sends data to certain email address and it collects all information to database. This information can be fetched as CSV file with basic authentication (username + password).
+        </p>
+        <p>
+        We want to build application wehre we can view and manipulat that data. We first create a GLAMpipe projects with one collection. Then we add web CSV source node (SOURCE -> WEB -> CSV) to the project. We point that the URL field of the node CSV output of the form. 
+        </p>
         <!-- insert the page content here -->
+        
         <h2>Projects</h2>
         <table style="width:100%; border-spacing:0">
           <tbody>
@@ -125,11 +150,11 @@
               <td>Creates new project</td>
             </tr>
             <tr>
-              <td>GET</td>
-              <td>/get/projects</td>
+              <td>POST</td>
+              <td>/run/node/:id</td>
               <td></td>
               <td>name</td>
-              <td>Lists all projects</td>
+              <td>Run node. NOTE: Request returns immediately.</td>
             </tr>
           </tbody>
         </table>
@@ -152,11 +177,11 @@
               <td>Creates new project</td>
             </tr>
             <tr>
-              <td>GET</td>
-              <td>/get/projects</td>
+              <td>POST</td>
+              <td>/run/node/:id</td>
               <td></td>
               <td>name</td>
-              <td>Lists all projects</td>
+              <td>Run node. NOTE: Request returns immediately.</td>
             </tr>
           </tbody>
         </table>
